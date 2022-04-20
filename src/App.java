@@ -6,7 +6,7 @@ public class App {
         Manager g = Manager.getInstance();
 
         double start = System.currentTimeMillis();
-        g.wordSize("caso01_julio.txt");
+        // g.wordSize("caso01_julio.txt");
         // g.wordSize("caso02_julio.txt");
         // g.wordSize("caso03_julio.txt");
         // g.wordSize("caso04_julio.txt");
@@ -15,7 +15,7 @@ public class App {
         // g.wordSize("caso07_julio.txt");
         // g.wordSize("caso08_julio.txt");
         // g.wordSize("caso09_julio.txt");
-        // g.wordSize("caso10_julio.txt");
+        g.wordSize("caso10_julio.txt");
 
         // variável que calcula o tempo de execução
         double executionTime = System.currentTimeMillis() - start;

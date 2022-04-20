@@ -11,6 +11,8 @@ public class Manager {
     private static Manager g = null;
     // store letter frequency
     private HashMap<String, Long> lengthLetters = new HashMap<>();
+    // calculate length of current letter (SECOND SOLUCTION)
+    // private long count = 0;
 
     // constructor
     private Manager() {
@@ -53,60 +55,59 @@ public class Manager {
                     auxData.remove(key);
             }
         }
-        String letterInicial = "";
+        String initialLetter = "";
         for (String key : auxData.keySet())
-            letterInicial += key;
-        return letterInicial;
+            initialLetter += key;
+        return initialLetter;
     }
 
-    // FIRST WAY
-    /*
-     * private int wordSize(String initialLetter, String currentValue) {
-     * // initialLetter's letters
-     * String letters[] = data.get(initialLetter).split("");
-     * // store letters with value != ""
-     * HashSet<String> lettersWithValue = new HashSet<>();
-     * // letter identifier with value != ""
-     * boolean hasLetterWithValue = true;
-     * while (hasLetterWithValue) {
-     * for (String letter : letters) {
-     * if (data.get(letter).length() == 0)
-     * currentValue += letter;
-     * else {
-     * lettersWithValue.add(letter);
-     * currentValue += data.get(letter).replaceAll(letter, data.get(letter));
-     * }
-     * if (!currentValue.contains(letter))
-     * lettersWithValue.remove(letter);
-     * }
-     * letters = currentValue.split("");
-     * currentValue = "";
-     * if (lettersWithValue.isEmpty())
-     * hasLetterWithValue = false;
-     * }
-     * return letters.length;
-     * }
-     */
+    // FIRST SOLUCTION
+    // private int calculateNumberOfLetters(String initialLetter) {
+    // // current value
+    // String currentValue = "";
+    // // initialLetter's letters
+    // String letters[] = data.get(initialLetter).split("");
+    // // store letters with value != ""
+    // HashSet<String> lettersWithValue = new HashSet<>();
+    // // letter identifier with value != ""
+    // boolean isLetterWithValueEmpty = true;
+    // while (isLetterWithValueEmpty) {
+    // for (String letter : letters) {
+    // if (data.get(letter).length() == 0)
+    // currentValue += letter;
+    // else {
+    // lettersWithValue.add(letter);
+    // currentValue += data.get(letter).replaceAll(letter, data.get(letter));
+    // }
+    // if (!currentValue.contains(letter))
+    // lettersWithValue.remove(letter);
+    // }
+    // letters = currentValue.split("");
+    // currentValue = "";
+    // if (lettersWithValue.isEmpty())
+    // isLetterWithValueEmpty = false;
+    // }
+    // return letters.length;
+    // }
 
-    // SECOND WAY
-    /*
-     * private long wordSize(String initialLetter, String currentValue) {
-     * // initialLetter's letters
-     * String letters[] = data.get(initialLetter).split("");
-     * // go through each letter
-     * for (String letter : letters) {
-     * // check if letter value has length == or != 0
-     * if (data.get(letter).length() == 0)
-     * count++;
-     * else
-     * lengthLetters.put(letter, wordSize(letter, data.get(letter)));
-     * }
-     * return count;
-     * }
-     */
+    // SECOND SOLUCTION
+    // private long calculateNumberOfLetters(String initialLetter) {
+    // // initialLetter's letters
+    // String letters[] = data.get(initialLetter).split("");
+    // // go through each letter
+    // for (String letter : letters) {
+    // // check if letter value has length == or != 0
+    // if (data.get(letter).length() == 0)
+    // count++;
+    // else
+    // calculateNumberOfLetters(letter);
+    // }
+    // return count;
+    // }
 
-    // THIRD WAY
+    // THIRD SOLUCTION
     private long calculateNumberOfLetters(String initialLetter) {
+        // calculate length of letter
         long count = 0;
         // initialLetter's letters
         String letters[] = data.get(initialLetter).split("");
